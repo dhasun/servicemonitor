@@ -1,0 +1,46 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+	
+	<bean id="mainConfig" class="com.yukon.servicemonitor.config.MonitorConfig">
+		<property name="serviceList">
+			<map>
+				<entry key="GOOGLE" value-ref="serviceOne" />					
+				<entry key="BETA" value-ref="serviceTwo"/>				
+			</map>
+		</property>
+	</bean>
+	
+	<!-- Define services here -->
+	
+	<bean id="serviceOne" class="com.yukon.servicemonitor.service.Service">
+		<property name="serviceConfig">
+			<bean class="com.yukon.servicemonitor.config.ServiceConfig">
+				<property name="port" 				value="80"></property>
+				<property name="runflag" 			value="true"></property>
+				<property name="serviceName" 		value="GOOGLE"></property>
+				<property name="host" 				value="www.google.com"></property>
+				<property name="outageDuration" 	value="3000"></property>
+				<property name="outageFrequency" 	value="5000"></property>
+			</bean>
+		</property>
+	</bean>
+	
+	
+	<bean id="serviceTwo" class="com.yukon.servicemonitor.service.Service">
+		<property name="serviceConfig">
+			<bean class="com.yukon.servicemonitor.config.ServiceConfig">
+				<property name="port" 				value="3334"></property>
+				<property name="runflag" 			value="true"></property>
+				<property name="serviceName" 		value="BETA"></property>
+				<property name="host" 				value="localhost"></property>
+				<property name="outageDuration" 	value="4000"></property>
+				<property name="outageFrequency" 	value="10000"></property>
+			</bean>
+		</property>
+	</bean>
+	
+	
+	<bean id="monitor" class="com.yukon.servicemonitor.monitor.Monitor" scope="prototype"></bean>
+</beans>

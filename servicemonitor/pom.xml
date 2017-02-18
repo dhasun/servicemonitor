@@ -1,0 +1,33 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>servicemonitor</groupId>
+  <artifactId>servicemonitor</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  
+  	<properties>
+		<spring.version>2.5.6</spring.version>
+	</properties>
+  
+  <dependencies>
+  	
+  	<!-- https://mvnrepository.com/artifact/org.springframework/spring -->
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring</artifactId>
+	    <version>${spring.version}</version>
+	</dependency>
+	
+	<!-- JUNIT -->
+	<dependency>
+          <groupId>junit</groupId>
+          <artifactId>junit</artifactId>
+          <version>4.12</version>
+          <scope>test</scope>
+      </dependency>
+  	
+  </dependencies>
+  
+  <build>
+  	<finalName>servicemonitor</finalName>
+  </build>
+</project>
